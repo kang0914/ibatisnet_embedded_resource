@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="MyBatisApp" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <statements>
+
+    <select id="MM_CODE.SELECT" parameterClass="System.Collections.Hashtable" resultClass="iBatisNet.Biz.MM_CODE">
+      SELECT * FROM MM_CODE
+    </select>
+
+    <update id="MM_CODE.INSERT" parameterClass="iBatisNet.Biz.MM_CODE">
+      <![CDATA[
+      INSERT INTO MM_CODE ( GROUP_CODE, GROUP_NAME, CODE, NAME, REV_NO, DATA1, DATA2, DATA3, IUSER, IDATE, DUSER, DDATE) 
+                   VALUES (#GROUP_CODE#, #GROUP_NAME#, #CODE#, #NAME#, #REV_NO#, #DATA1#, #DATA2#, #DATA3#, #IUSER#, #IDATE#, #DUSER#, #DDATE#)
+      ]]>
+    </update>
+
+  </statements>
+</sqlMap>
