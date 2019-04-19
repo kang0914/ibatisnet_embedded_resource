@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="MyBatisApp" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <statements>
+    
+    <select id="MM_CODE.SELECT2" parameterClass="System.Collections.Hashtable" resultClass="iBatisNet.Biz.MM_CODE">
+      SELECT * FROM MM_CODE
+    </select>
+
+  </statements>
+</sqlMap>

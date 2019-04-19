@@ -31,5 +31,18 @@ namespace iBatisNet.Biz.UnitTest
             // 확인
             
         }
+
+        [TestMethod]
+        public void Test2()
+        {
+            // 작업            
+            MainService mainService = new MainService();
+
+            // 준비
+            mainService.Test();
+
+            // 확인
+
+        }
     }
 }

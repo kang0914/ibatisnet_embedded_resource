@@ -19,7 +19,7 @@ namespace iBatisNet.Biz
             get
             {
                 try
-                {
+                {   
                     ISqlMapper mapper = Mapper.Instance();
                     return mapper;
                 }
@@ -42,34 +42,12 @@ namespace iBatisNet.Biz
 
         public void Test()
         {
-            string serverName = "test_serverName";
-            string databaseName = "test_databaseName";
-
-            // Load the config file (embedded resource in assembly).
-            System.Xml.XmlDocument xmlDoc = IBatisNet.Common.Utilities.Resources.GetEmbeddedResourceAsXmlDocument("configs.SqlMap.config, iBatisNet.Biz");
-
-            // Overwrite the connectionString in the XmlDocument, hence changing database.
-            // NB if your connection string needs extra parameters,
-            // such as `Integrated Security=SSPI;` for user authentication,
-            // then append that to InnerText too.
-            //xmlDoc["sqlMapConfig"]["database"]["dataSource"]
-            //    .Attributes["connectionString"]
-            //    .InnerText = "Server=" + serverName + ";Database=" + databaseName;
-
-            // query xml
-            var sqlMapsRoot = xmlDoc["sqlMapConfig"]["sqlMaps"];
-            var queryFileNames = EmbeddedResourceHelper.GetAllQueryXML("Query");
-            foreach (var queryFile in queryFileNames)
-            {
-                System.Xml.XmlElement elem = xmlDoc.CreateElement("sqlMap", sqlMapsRoot.NamespaceURI);
-                elem.SetAttribute("embedded", $"{queryFile}, {Assembly.GetExecutingAssembly().GetName().Name}");
-                sqlMapsRoot.AppendChild(elem);
-            }
-
-            // Instantiate Ibatis mapper using the XmlDocument via a Builder,
-            // instead of Ibatis using the config file.
-            IBatisNet.DataMapper.Configuration.DomSqlMapBuilder builder = new IBatisNet.DataMapper.Configuration.DomSqlMapBuilder();
-            IBatisNet.DataMapper.ISqlMapper ibatisInstance = builder.Configure(xmlDoc);
+            //var ibatisInstance = IBatisNetMapperHelper.CreateMapperFromEmbeddedResource("configs.SqlMap.config, iBatisNet.Biz",
+            //                                                                            "configs.providers.config, iBatisNet.Biz",
+            //                                                                            "Query");
+            //var ibatisInstance = IBatisNetMapperHelper.CreateMapperFromEmbeddedResource();
+            //var ibatisInstance = IBatisNetMapperHelper.CreateMapper();
+            var ibatisInstance = IBatisNetMapperHelper.CreateMapperFromEmbeddedResource(@"data source=(localDB)\MSSQLLocalDB;initial catalog=TEMP.BIZ.DB;integrated security=True;MultipleActiveResultSets=True;");
 
             var result = ibatisInstance.QueryForList<MM_CODE>("MM_CODE.SELECT", null);
         }
