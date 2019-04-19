@@ -19,8 +19,9 @@ namespace iBatisNet.Biz
             get
             {
                 try
-                {   
-                    ISqlMapper mapper = Mapper.Instance();
+                {
+                    //ISqlMapper mapper = Mapper.Instance();
+                    ISqlMapper mapper = EmbeddedResourceMapper.Instance();
                     return mapper;
                 }
                 catch (Exception ex)

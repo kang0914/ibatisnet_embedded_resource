@@ -11,8 +11,8 @@ namespace iBatisNet.Biz.Utils
 {
     public class IBatisNetMapperHelper
     {
-        public const string DEFAULT_EMBEDDED_RESOURCE_SQLMAP_CONFIG = "configs.SqlMap.config";
-        public const string DEFAULT_EMBEDDED_RESOURCE_PROVIDERS_CONFIG = "configs.providers.config";
+        public const string DEFAULT_EMBEDDED_RESOURCE_SQLMAP_CONFIG = "SqlMap.config";
+        public const string DEFAULT_EMBEDDED_RESOURCE_PROVIDERS_CONFIG = "providers.config";
         public const string DEFAULT_EMBEDDED_RESOURCE_QUERY_XML = "Query";
 
         public static ISqlMapper CreateMapperFromEmbeddedResource()
